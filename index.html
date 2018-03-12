@@ -24,15 +24,11 @@
 
 <body>
 
-  <div class="okvir">
+  <div class="wrap">
 
-    <div class="kont">
+    <div class="cont">
 
       <h1>Aircraft Traffic Flow</h1>
-
-      <div class="">
-        <!-- <button type="button" onclick="eraseData()">Obrisi rezultate</button> -->
-      </div>
 
       <div class="" id="lonlat">
 
@@ -40,17 +36,17 @@
       </div>
 
 
-      <div class="" id="rezultat">
+      <div class="" id="result">
 
       </div>
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="airCraftModal" tabindex="-1" role="dialog" aria-labelledby="airCraftModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <figure id="logo"></figure>
-              <h5 class="modal-title" id="exampleModalLabel"></h5>
+              <h5 class="modal-title" id="airCraftModalLabel"></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -96,8 +92,9 @@
         '<p>Longitude: ' + position.coords.longitude + '</p>';
       lat = position.coords.latitude;
       lon = position.coords.longitude;
-      //setInterval(getResults(), 3000);
       getResults();
+      setInterval(eraseData,59000);
+      setInterval(getResults,60000);
     }
 
     if (navigator.geolocation) {
@@ -126,7 +123,7 @@
 
   <script type="text/javascript">
     function eraseData() {
-      document.getElementById('rezultat').innerHTML = '';
+      document.getElementById('result').innerHTML = '';
     }
   </script>
 
@@ -134,8 +131,11 @@
   <!-- get server -->
 
   <script type="text/javascript">
+
+//////////////////////100km, ako se kod gleda uvece treba povecati search radijus
+
     function getServer(x, y) {
-      return 'http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?lat=' + x + '&lng=' + y + '&fDstL=0&fDstU=300';
+      return 'http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?lat=' + x + '&lng=' + y + '&fDstL=0&fDstU=100';
     }
   </script>
 
@@ -192,11 +192,6 @@
 
 
   <script>
-    console.log(lati);
-
-
-
-
 
     // AJAX request
 
@@ -209,13 +204,13 @@
 
     function showPlane(plane) {
       //console.log(plane);
-      document.getElementById('exampleModalLabel').innerHTML = plane.Call
+      document.getElementById('airCraftModalLabel').innerHTML = plane.Call
       document.getElementById('man').innerHTML = plane.Man
       document.getElementById('mdl').innerHTML = plane.Mdl
       document.getElementById('from').innerHTML = plane.From;
       document.getElementById('to').innerHTML = plane.To;
       document.getElementById('logo').innerHTML = getLogo(plane.Op);
-      $('#exampleModal').modal();
+      $('#airCraftModal').modal();
       console.log(getLogo(plane.Op));
 
     }
@@ -274,7 +269,7 @@
         planes.forEach(function(plane) {
           tblBody.appendChild(makeRow(plane));
         });
-        document.getElementById('rezultat').appendChild(tblContainer);
+        document.getElementById('result').appendChild(tblContainer);
       });
     }
 
