@@ -1,0 +1,108 @@
+
+
+/* global */
+
+
+
+
+img{
+  max-width: 100%;
+}
+
+h1{
+  font-weight: 600;
+}
+
+figure{
+  height: 32px;
+  width: 32px;
+  margin: 16px 30px;
+}
+
+.modal-header figure{
+  height: 40px;
+  width: 40px;
+  margin: 16px 30px;
+}
+
+tr th{
+  font-weight: 700;
+}
+
+tr td:nth-of-type(2),
+tr th:nth-of-type(2){
+  padding-right: 30px;
+}
+
+tr td:nth-of-type(1),
+tr th:nth-of-type(1){
+  padding-right: 30px;
+}
+
+.okvir{
+  background: url('../img/avion5.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0px;
+  text-align: center;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.kont{
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  margin: 0;
+  color: #fff;
+  padding: 10px;
+}
+
+table tbody tr:hover{
+  background-color: rgb(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+ table td,
+ table th{
+  text-align: center;
+}
+
+#exampleModal{
+  color: #000;
+}
+
+#lonlat{
+  padding: 15px;
+  text-align: left;
+}
+
+#lonlat h5{
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+
+.modal-body span{
+  padding-left: 10px;
+  font-weight: 700;
+}
+
+.modal-body{
+  text-align: left;
+}
+
+.modal-header{
+  background-color: #e0e0e0;
+}
+
+.modal-content{
+  background-color: #eeeeee;
+}
+
+.error{
+  color: #c0d7f6;
+  text-align: center;
+  font-weight: 600!important;
+}

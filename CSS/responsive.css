@@ -1,0 +1,34 @@
+
+@media(min-width:576px){
+
+  kont{
+    margin: auto;
+  }
+
+  .okvir{
+    padding: 30px;
+  }
+
+}
+
+@media(min-width:768px){
+
+  kont{
+    padding: 40px;
+  }
+
+}
+
+
+
+
+@media(min-width:992px){
+
+
+
+}
+
+@media(min-width:1200px){
+
+
+}
